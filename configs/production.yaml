@@ -1,0 +1,10 @@
+environment: production
+logging:
+  level: INFO
+api:
+  host: 0.0.0.0
+  port: 8000
+features:
+  mock_models: false
+security:
+  require_authentication: true
