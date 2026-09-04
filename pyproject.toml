@@ -1,0 +1,138 @@
+[build-system]
+requires = [
+    "setuptools>=75.0",
+    "wheel",
+]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "nexus-sense-ai"
+version = "0.1.0"
+description = "Agentic intelligence infrastructure for complex data, research, reasoning, and decision support."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+
+authors = [
+    { name = "NEXUS-SENSE AI Contributors" }
+]
+
+keywords = [
+    "artificial-intelligence",
+    "ai-agents",
+    "agentic-ai",
+    "machine-learning",
+    "rag",
+    "knowledge-graph",
+    "decision-support",
+    "intelligence",
+    "llm",
+    "research-automation",
+]
+
+
+[project.urls]
+Homepage = "https://github.com/Eric428-a/nexus-sense-ai"
+Repository = "https://github.com/Eric428-a/nexus-sense-ai"
+Issues = "https://github.com/Eric428-a/nexus-sense-ai/issues"
+
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+
+# ============================================================
+# Ruff
+# ============================================================
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+exclude = [
+    ".git",
+    ".venv",
+    "venv",
+    "build",
+    "dist",
+    "notebooks",
+]
+
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "F",
+    "I",
+    "B",
+    "UP",
+    "SIM",
+]
+
+ignore = [
+    "E501",
+]
+
+
+[tool.ruff.lint.isort]
+known-first-party = [
+    "nexus",
+]
+
+
+# ============================================================
+# Mypy
+# ============================================================
+
+[tool.mypy]
+python_version = "3.11"
+strict = false
+warn_unused_configs = true
+ignore_missing_imports = true
+plugins = []
+
+
+# ============================================================
+# Pytest
+# ============================================================
+
+[tool.pytest.ini_options]
+testpaths = [
+    "tests",
+]
+
+pythonpath = [
+    "src",
+]
+
+asyncio_mode = "auto"
+
+addopts = [
+    "-ra",
+    "--strict-markers",
+]
+
+
+# ============================================================
+# Coverage
+# ============================================================
+
+[tool.coverage.run]
+source = [
+    "src/nexus",
+]
+
+branch = true
+
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "if TYPE_CHECKING:",
+    "raise NotImplementedError",
+]
